@@ -1,0 +1,113 @@
+:root {
+	--main-color: #7cc2da;
+}
+
+body {
+	margin: 0;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+header,
+main,
+footer {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.wrapper {
+	display: flex;
+	width: 940px;
+}
+
+/********************************************************/
+/*				HEADER 									*/
+/********************************************************/
+
+header {
+	height: 450px;
+	justify-content: space-between;
+	background: url(http://placehold.it/1920x370) no-repeat;
+	background-position: bottom;
+}
+
+.main-header {
+	height: 80px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	margin-left: 10px;
+	font-weight: bold;
+	color: var(--main-color);
+	font-size: 20px;
+}
+
+.menu ul {
+	padding: 0;
+}
+
+.menu li {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+/********************************************************/
+/*				MAIN 									*/
+/********************************************************/
+
+main {
+	padding-top: 50px;
+}
+
+.search-place {
+	background: var(--main-color);
+    display: flex;
+	flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+	min-height: 250px;
+}
+
+.popular,
+.new {
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.card {
+	width: 32%;
+	height: 300px;
+	border-radius: 4px;
+	background: green;
+}
+
+/********************************************************/
+/*				FOOTER 									*/
+/********************************************************/
+
+footer {
+	height: 50px;
+	justify-content: center;
+}
+
+.main-footer {
+	align-items: center;
+}
+
+.search-place form {
+    display: flex;
+    justify-content: center;
+}
