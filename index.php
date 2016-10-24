@@ -5,7 +5,30 @@
 	<title>Travel Agency</title>
 	<link rel="stylesheet" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
+<script>
+    $(function(){
+        $("#country").keyup(function(){
+            var search = $("#country").val();
+            $.ajax({
+                type: "POST",
+                url: "search.php",
+                data: {"country": search},
+                cache: false,                                 
+                success: function(response){
+                    $("#country").html(response);
+                }
+            });
+            return false;
+        });
+    }); 
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    });
+</script>
 <body>
 	<header>
 		<div class="main-header wrapper">
@@ -23,8 +46,10 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, rem.</p>
 		</div>
 	</header>
+
+
 	<?php
-    
+    /*
         require_once "conect.php";
         $query = "SELECT * FROM clients";
     
@@ -44,45 +69,68 @@
             mysqli_free_result($result);
         }
         mysqli_close($conect);
-    
+    */
     ?>
+
 	<main>
 		<div class="search-place wrapper">
 			<h2>Lorem ipsum dolor.</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, ipsum?</p>
-			<form action="">
-				<input type="text" placeholder="Выбирете страну">
-				<input type="text" placeholder="Взрослые">
-				<input type="text" placeholder="Дети">
+			<p>Найдите все необходимое и забронируйте путешествие своей мечты по самой низкой цене</p>
+			<form action="search.php" method="post">
+				<input type="text" name="country" id="country" list="country_list" autocomplete="off" placeholder="Выбирете страну">
+				<datalist id="country_list">
+				    <option>Беларусь</option>
+				    <option>Польша</option>
+				    <option>Чехия</option>
+				</datalist>
+				<input type="text" id="datepicker" placeholder="Выбирите дату">
 				<input type="submit" value="поиск">
 			</form>
 		</div>
 		<div class="popular wrapper">
 			<h3>Популярное</h3>
 			<div class="row">
-				<div class="card">
-					
-				</div>
-				<div class="card">
-					
-				</div>
-				<div class="card">
-					
-				</div>
+				<?php
+                    require_once "connect.php";
+                    
+                    $query1 = "SELECT price,country,city FROM tour WHERE orders > 150";
+                    $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
+
+                    if($result) {
+                        $rows = mysqli_num_rows($result);
+
+                        for($i=0; $i<$rows; ++$i) {
+                            echo "<div class='card'>";
+                            $row = mysqli_fetch_row($result);
+                            for($j=0; $j<3; ++$j) echo $row[$j];
+                            echo "</div>";
+                        }
+                        
+                        mysqli_free_result($result);
+                    }
+                ?>
 			</div>
 		</div>
 		<div class="new wrapper">
 			<h3>Новые предложения</h3>
 			<div class="row">
-				<div class="card">
-					
-				</div>
-				<div class="card">
-					
-				</div>
-				<div class="card">
-					
-				</div>
+				<?php        
+                    $query1 = "SELECT price,country,city FROM tour";
+                    $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
+
+                    if($result) {
+                        $rows = mysqli_num_rows($result);
+
+                        for($i=0; $i<3; ++$i) {
+                            echo "<div class='card'>";
+                            $row = mysqli_fetch_row($result);
+                            for($j=0; $j<3; ++$j) echo $row[$j];
+                            echo "</div>";
+                        }
+                        
+                        mysqli_free_result($result);
+                    }
+                ?>
 			</div>
 		</div>
 	</main>

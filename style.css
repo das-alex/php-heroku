@@ -59,6 +59,35 @@ header {
 	margin-right: 10px;
 }
 
+.header_admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+    background: #64bf92;
+    width: 100%;
+}
+
+.left_admin {
+    margin-left: 10px;
+}
+
+.left_admin li {
+    height: 60px;
+    background: black;
+}
+
+.header_admin a {
+    color: white;
+}
+
+.right_admin {
+    margin-right: 10px;
+}
+
+
+
 /********************************************************/
 /*				MAIN 									*/
 /********************************************************/
@@ -68,12 +97,12 @@ main {
 }
 
 .search-place {
-	background: var(--main-color);
-    display: flex;
+	background-color: var(--main-color);
 	flex-direction: column;
-    text-align: center;
     justify-content: space-around;
+    align-items: center;
 	min-height: 250px;
+    box-shadow: 0 0 5px 1px #ccc;
 }
 
 .popular,
@@ -92,6 +121,31 @@ main {
 	height: 300px;
 	border-radius: 4px;
 	background: green;
+}
+
+.search-place form {
+    box-shadow: 0 0 4px 0 #707070;
+}
+
+.search-place input[type=text] {
+    border: none;
+    width: 40%;
+    padding-left: 10px;
+    font-size: 14pt;
+    line-height: 2;
+}
+
+.search-place input[type=text]:nth-child(n+1) {
+    border-left: 1px solid;
+    border-color: darkgrey;
+}
+
+.search-place input[type=submit] {
+    border: none;
+    background: orange;
+    color: white;
+    width: 20%;
+    cursor: pointer;
 }
 
 /********************************************************/
