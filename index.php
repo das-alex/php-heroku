@@ -10,21 +10,21 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <script>
-    $(function(){
-        $("#country").keyup(function(){
-            var search = $("#country").val();
-            $.ajax({
-                type: "POST",
-                url: "search.php",
-                data: {"country": search},
-                cache: false,                                 
-                success: function(response){
-                    $("#country").html(response);
-                }
-            });
-            return false;
-        });
-    }); 
+//    $(function(){
+//        $("#country").keyup(function(){
+//            var search = $("#country").val();
+//            $.ajax({
+//                type: "POST",
+//                url: "search.php",
+//                data: {"country": search},
+//                cache: false,                                 
+//                success: function(response){
+//                    $("#country").html(response);
+//                }
+//            });
+//            return false;
+//        });
+//    }); 
     $( function() {
         $( "#datepicker" ).datepicker();
     });
