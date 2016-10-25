@@ -51,38 +51,46 @@ header {
 }
 
 .menu ul {
-	padding: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .menu li {
 	display: inline-block;
+    position: relative;
+    vertical-align: top;
 	margin-right: 10px;
 }
 
 .header_admin {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     min-height: 60px;
     background: #64bf92;
     width: 100%;
 }
 
 .left_admin {
+    float: left;
     margin-left: 10px;
-}
-
-.left_admin li {
-    height: 60px;
-    background: black;
 }
 
 .header_admin a {
     color: white;
+    display: block;
+    padding: 20px 5px;
+}
+
+.left_admin li:hover::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: -1px;
+    height: 3px;
+    background-color: #fff;
 }
 
 .right_admin {
+    float: right;
     margin-right: 10px;
 }
 
@@ -107,20 +115,19 @@ main {
 
 .popular,
 .new {
-	flex-direction: column;
-}
-
-.row {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+    flex-direction: column;
 }
 
 .card {
+    float: left;
 	width: 32%;
 	height: 300px;
 	border-radius: 4px;
 	background: green;
+}
+
+.card:nth-child(2) {
+    margin: 0 2%;
 }
 
 .search-place form {
@@ -146,6 +153,16 @@ main {
     color: white;
     width: 20%;
     cursor: pointer;
+}
+
+.search-place input[type=submit]:hover {
+    background: #ffb42a;
+    transition: all .3s;
+}
+
+.search-place input[type=submit]:not(:hover) {
+    background: orange;
+    transition: all .3s;
 }
 
 /********************************************************/

@@ -79,9 +79,23 @@
 			<form action="search.php" method="post">
 				<input type="text" name="country" id="country" list="country_list" autocomplete="off" placeholder="Выбирете страну">
 				<datalist id="country_list">
-				    <option>Беларусь</option>
-				    <option>Польша</option>
-				    <option>Чехия</option>
+				    <?php
+                        require_once "connect.php";
+                        
+                        $query1 = "SELECT country FROM tour";
+                        $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
+                    
+                        if($result) {
+                            $rows = mysqli_num_rows($result);
+                            
+                            for($i=0; $i<$rows; ++$i) {
+                                echo "<option>";
+                                $row = mysqli_fetch_array($result);
+                                echo $row;
+                                echo "</option>";
+                            }
+                        }
+                    ?>
 				</datalist>
 				<input type="text" id="datepicker" placeholder="Выбирите дату">
 				<input type="submit" value="поиск">
@@ -90,9 +104,7 @@
 		<div class="popular wrapper">
 			<h3>Популярное</h3>
 			<div class="row">
-				<?php
-                    require_once "connect.php";
-                    
+				<?php                    
                     $query1 = "SELECT price,country,city FROM tour WHERE orders > 150";
                     $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
 
