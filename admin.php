@@ -20,5 +20,25 @@
             <a href="">Выход</a>
         </div>
     </div>
+    <div class="main_admin">
+        <div class="left_menu">
+            <ul>
+                <li><a href="">Добавить новый тур</a></li>
+                <li><a href="">Добавить Новость</a></li>
+                <li><a href="">Добавить обложку</a></li>
+            </ul>
+        </div>
+        <div class="right_form">
+            <form action="">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

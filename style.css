@@ -165,6 +165,36 @@ main {
     transition: all .3s;
 }
 
+.main_admin {
+    padding-top: 30px; 
+    width: 950px;
+    margin: 0 auto;
+}
+
+.left_menu {
+    float: left;
+    width: 280px;
+    min-height: 100px;
+    background: #e8e8e8;
+    box-shadow: 0 0 2px 0 #9a9a9a;
+    padding: 10px;
+}
+
+.left_menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.right_form {
+    float: right;
+    width: 620px;
+    min-height: 400px;
+    background: #e8e8e8;
+    box-shadow: 0 0 2px 0 #9a9a9a;
+    padding: 10px;
+}
+
 /********************************************************/
 /*				FOOTER 									*/
 /********************************************************/

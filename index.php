@@ -82,16 +82,15 @@
 				    <?php
                         require_once "connect.php";
                         
-                        $query1 = "SELECT country FROM tour";
+                        $query1 = "SELECT country FROM tour GROUP BY country";
                         $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
                     
                         if($result) {
                             $rows = mysqli_num_rows($result);
-                            
-                            for($i=0; $i<$rows; ++$i) {
+                            for($i=0; $i<$rows; $i++) {
                                 echo "<option>";
-                                $row = mysqli_fetch_array($result);
-                                echo $row;
+                                $row = mysqli_fetch_row($result);
+                                for($j=0; $j<1; $j++) echo $row[$j];
                                 echo "</option>";
                             }
                         }
