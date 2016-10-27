@@ -42,36 +42,15 @@
 			</nav>
 		</div>
 		<div class="main-promotion wrapper">
+		    <?php
+                require_once "connect.php";
+            
+                $query1 = "SELECT picture_lrg, "
+            ?>
 			<h2>Lorem ipsum.</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, rem.</p>
 		</div>
 	</header>
-
-
-	<?php
-    /*
-        require_once "conect.php";
-        $query = "SELECT * FROM clients";
-    
-        $result = mysqli_query($conect, $query) or die("Ошибка чтения из БД" . mysqli_error($conect));
-    
-        if($result) {
-            
-            $rows = mysqli_num_rows($result);
-            
-            echo "<ul>";
-            for($i=0; $i<$rows; ++$i) {
-                $row = mysqli_fetch_row($result);
-                
-                for($j=0; $j<7; ++$j) echo "<li>".$row[$j]."</li>";        
-            }
-            echo "</ul>";
-            mysqli_free_result($result);
-        }
-        mysqli_close($conect);
-    */
-    ?>
-
 	<main>
 		<div class="search-place wrapper">
 			<h2>Lorem ipsum dolor.</h2>
@@ -79,9 +58,7 @@
 			<form action="search.php" method="post">
 				<input type="text" name="country" id="country" list="country_list" autocomplete="off" placeholder="Выбирете страну">
 				<datalist id="country_list">
-				    <?php
-                        require_once "connect.php";
-                        
+				    <?php         
                         $query1 = "SELECT country FROM tour GROUP BY country";
                         $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
                     
@@ -126,19 +103,16 @@
 			<h3>Новые предложения</h3>
 			<div class="row">
 				<?php        
-                    $query1 = "SELECT price,country,city FROM tour";
+                    $query1 = "SELECT price,country,city FROM tour ORDER BY id DESC LIMIT 3";
                     $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
 
                     if($result) {
-                        $rows = mysqli_num_rows($result);
-
-                        for($i=0; $i<3; ++$i) {
+                        for($i=0; $i<3; $i++) {
                             echo "<div class='card'>";
                             $row = mysqli_fetch_row($result);
                             for($j=0; $j<3; ++$j) echo $row[$j];
                             echo "</div>";
                         }
-                        
                         mysqli_free_result($result);
                     }
                 ?>

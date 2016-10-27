@@ -195,6 +195,23 @@ main {
     padding: 10px;
 }
 
+.add_admin ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.add_admin li {
+    line-height: 2;
+}
+
+.add_admin label {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    text-align: right;
+}
+
 /********************************************************/
 /*				FOOTER 									*/
 /********************************************************/
