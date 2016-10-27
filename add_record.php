@@ -3,8 +3,9 @@
     $arr = array();
     $k = 0;
     $path = "img/";
-    $types = "image/jpeg";
-    $size = 5024000;
+    $ext = array_pop(explode('.',$_FILES['picture']['name']));
+    $new_name = time().'.'.$ext;
+    $full_path = $path.$new_name;
     
     mysqli_set_charset($conect, "utf8");
     foreach($_POST as $value) {
@@ -14,12 +15,13 @@
         $k++;
     }
 
-    if($_SERVER['REQUEST_METHOD']=='POST') {
-        if(!in_array($_FILES['picture_sml']['type'], $types)) die("<span>Такой тип файла нельзя загружать у нас</span>");
-        if($_FILES['picture_sml']['size'] > $size) die("<span>Слишком большой размер файла</span>")
+    if($_FILES['picture']['error'] == 0) {
+        if(move_uploaded_file($_FILES['picture']['tmp_name'], $full_path)) {
+            $picture = $full_path;
+        }
     }
 
-    $query = "INSERT INTO `tour`(`id`, `country`, `city`, `type_live`, `start_date`, `end_date`, `cnt_people`, `price`, `dscrbe`, `transport`) VALUES (NULL,'$arr[0]','$arr[1]','$arr[2]','$arr[3]','$arr[4]',$arr[5],$arr[6],'$arr[7]','$arr[8]')";
+    $query = "INSERT INTO `tour`(`id`, `country`, `city`, `type_live`, `start_date`, `end_date`, `cnt_people`, `price`, `dscrbe`, `transport`, `picture`) VALUES (NULL,'$arr[0]','$arr[1]','$arr[2]','$arr[3]','$arr[4]',$arr[5],$arr[6],'$arr[7]','$arr[8]','$picture')";
     
 //    mysqli_query($conect, $query);
     if(mysqli_query($conect, $query)) {

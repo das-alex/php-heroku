@@ -38,12 +38,8 @@
             <input type="text" name="transport">
         </li>
         <li>
-            <label for="picture_sml">Картинка для preview</label>
-            <input type="file" name="picture_sml">
-        </li>
-        <li>
-            <label for="picure_lrg">Картинка для записи</label>
-            <input type="file" name="picure_lrg">
+            <label for="picture_sml">Картинка для записи</label>
+            <input type="file" name="picture">
         </li>
     </ul>
     <input type="submit" value="отправить">
