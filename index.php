@@ -54,7 +54,7 @@
 	<main>
 		<div class="search-place wrapper">
 			<h2>Lorem ipsum dolor.</h2>
-			<p>Найдите все необходимое и забронируйте путешествие своей мечты по самой низкой цене</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ipsam dolorum in voluptatibus, officia itaque asperiores provident, earum, saepe id sint dolores nesciunt. Perferendis, quia?</p>
 			<form action="search.php" method="post">
 				<input type="text" name="country" id="country" list="country_list" autocomplete="off" placeholder="Выбирете страну">
 				<datalist id="country_list">
@@ -81,7 +81,7 @@
 			<h3>Популярное</h3>
 			<div class="row">
 				<?php                    
-                    $query1 = "SELECT price,country,city FROM tour WHERE orders > 150";
+                    $query1 = "SELECT price,country,city,picture FROM tour WHERE orders > 150";
                     $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
 
                     if($result) {
@@ -90,7 +90,7 @@
                         for($i=0; $i<$rows; ++$i) {
                             echo "<div class='card'>";
                             $row = mysqli_fetch_row($result);
-                            for($j=0; $j<3; ++$j) echo $row[$j];
+                            echo "<div><img src='" . $row[3] . "' width='304' height='160'></div><h3>" . $row[1] . ", " . $row[2] . "</h3><div class='index_button_more'><div><span>". $row[0] ." $</span></div><a href=''>подробнее</a></div>";
                             echo "</div>";
                         }
                         
@@ -103,14 +103,14 @@
 			<h3>Новые предложения</h3>
 			<div class="row">
 				<?php        
-                    $query1 = "SELECT price,country,city,picture FROM tour ORDER BY id DESC LIMIT 3";
+                    $query1 = "SELECT price,country,city,picture,id FROM tour ORDER BY id DESC LIMIT 3";
                     $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
 
                     if($result) {
                         for($i=0; $i<3; $i++) {
                             echo "<div class='card'>";
                             $row = mysqli_fetch_row($result);
-                            echo "<div><img src='" . $row[3] . "' width='304' height='160'></div><h3>" . $row[1] . ", " . $row[2] . "</h3>";
+                            echo "<div><img src='" . $row[3] . "' width='304' height='160'></div><h3>" . $row[1] . ", " . $row[2] . "</h3><div class='index_button_more'><div><span>". $row[0] ." $</span></div><a href='item.php?id=".$row[4]."'>подробнее</a></div>";
                             echo "</div>";
                         }
                         mysqli_free_result($result);
