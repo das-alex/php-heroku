@@ -1,18 +1,45 @@
-<?php
-    require_once "connect.php";
-	$search = $_POST['country'];
-    $query = mysqli_query($conect, "SELECT * FROM tour WHERE country LIKE '%". $search ."%'");
-    
-    if($search == ''){
-        exit("Начните вводить запрос");
-    }
-
-    if(mysqli_num_rows($query) > 0) {
-       $sql = mysqli_fetch_array($query);
-       do {
-         echo "<option>".$sql['country']."</option>";
-       } while($sql = mysqli_fetch_array($query));
-    }else{
-       echo "Нет результатов";
-    }
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Travel Agency</title>
+	<link rel="stylesheet" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<header class="item_no_pic">
+		<div class="main-header wrapper">
+			<a href="index.html" class="logo">TravelAgency</a>
+			<nav class="menu">
+				<ul>
+					<li><a href="#">Новости</a></li>
+					<li><a href="#">О нас</a></li>
+					<li><a href="#">Контакты</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+        <div class="filter_block wrapper">
+            <div>
+            </div>
+            <div>
+                <span>Сортировка:</span>
+                <span>По возрастанию</span>
+                <span>По убыванию</span>
+            </div>
+        </div> 
+	</main>
+	<footer>
+		<div class="main-footer wrapper">
+			<a href="index.html" class="logo">TravelAgency</a>
+			<div class="social-buttons">
+				
+			</div>
+			<p class="copyright">
+				
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

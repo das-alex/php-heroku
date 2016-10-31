@@ -42,5 +42,5 @@
             <input type="file" name="picture">
         </li>
     </ul>
-    <input type="submit" value="отправить">
+    <input name="admin_add" type="submit" value="отправить">
 </form>

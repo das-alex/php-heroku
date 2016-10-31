@@ -100,7 +100,33 @@ header {
     margin-right: 10px;
 }
 
+.card_approving_buy {
+    margin: 50px auto;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 #8b8b8b;
+    width: 400px;
+    height: 500px;
+    background: #fff;
+}
 
+.head_card_approving {
+    width: 100%;
+    height: 95px;
+    padding-top: 5px;
+    text-align: center;
+    background: #f7f7f7;
+    color: #666666;
+    box-shadow: 0 1px 2px 0 #ccc;
+}
+
+.head_card_approving h1 {
+    margin-bottom: 0;
+}
+
+.head_card_approving p {
+    margin: 0;
+    color: black;
+}
 
 /********************************************************/
 /*				MAIN 									*/
@@ -169,10 +195,14 @@ main {
     margin: 0 auto;
     width: 200px;
     font-size: 16px;
-    background: green;
 }
 
-.index_button_more div {
+.buy_button_item {
+    width: 200px;
+}
+
+.index_button_more div,
+.buy_button_item div{
     width: 98px;
     padding: 10px 0;
     float: left;
@@ -180,7 +210,8 @@ main {
     border: 1px solid orange;
 }
 
-.index_button_more a {
+.index_button_more a,
+.buy_button_item a {
     display: inline-block;
     padding: 10px 0;
     float: right;
@@ -190,6 +221,8 @@ main {
     background: orange;
     color: white;
 }
+
+/*Форма поиска на главной странице*/
 
 .search-place form {
     box-shadow: 0 0 4px 0 #707070;
@@ -236,6 +269,8 @@ main {
     background: orange;
     transition: all .3s;
 }
+
+/*Страница управления контентом*/
 
 .main_admin {
     padding-top: 30px; 
@@ -284,6 +319,8 @@ main {
     text-align: right;
 }
 
+/*Формирование сетки страницы товара*/
+
 .body_item {
     flex-flow: row wrap;
 }
@@ -291,12 +328,77 @@ main {
 .body_item_left,
 .body_item_right {
     width: 50%;
-    background: green;
 }
 
 .body_item_bottom {
+    display: flex;
     width: 100%;
-    background: pink;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.body_card_approving {
+    width: 100%;
+    height: 380px;
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.body_card_approving label {
+    display: inline-block;
+    text-align: left;
+    width: 170px;
+}
+
+.body_card_approving ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.body_card_approving li {
+    margin-bottom: 10px;
+}
+
+.body_card_approving input[type=submit] {
+    border: none;
+    background: orange;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.body_card_approving input[type=submit]:hover {
+    background: #ffb42a;
+    transition: all .3s;
+}
+
+.body_card_approving input[type=submit]:not(:hover) {
+    background: orange;
+    transition: all .3s;
+}
+
+.body_card_approving span {
+    display: inline-block;
+    position: absolute;
+    transform: translate(-50%);
+    bottom: 55px;
+}
+
+.filter_block {
+    background: var(--main-color);
+    height: 45px;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 #ccc;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /********************************************************/

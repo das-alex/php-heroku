@@ -31,7 +31,7 @@
                 if($result) {
                     
                     $row = mysqli_fetch_row($result);
-                    echo "<div class='head_item wrapper'><img src='".$row[12]."' width='940' height='370'></div><div class='body_item wrapper'><div class='body_item_left'><h1>".$row[1].", ".$row[2]."</h1><p>".$row[8]."</p><p>Проживание: ".$row[3]."</p><p>Дата заезда: ".$row[4]." - ".$row[5]."</p><p>Количество людей: ".$row[6]."</p><p>Тип транспорта: ".$row[9]."</p></div><div class='body_item_right'>123</div><div class='body_item_bottom'><span>просмотров: ".$row[10]."</span><a href='".."'></a></div>";
+                    echo "<div class='head_item wrapper'><img src='".$row[12]."' width='940' height='370'></div><div class='body_item wrapper'><div class='body_item_left'><h1>".$row[1].", ".$row[2]."</h1><p>".$row[8]."</p><p>Проживание: ".$row[3]."</p><p>Дата заезда: ".$row[4]." - ".$row[5]."</p><p>Количество людей: ".$row[6]."</p><p>Тип транспорта: ".$row[9]."</p></div><div class='body_item_right'>Здесь может быть фотогалерея</div><div class='body_item_bottom'><span>просмотров: ".$row[10]."</span><div class='buy_button_item'><div><span>".$row[7]." $</span></div><a href='buy.php?id=".$id."'>купить</a></div></div>";
                     echo "</div>";
                         
                 }else echo "Есть проблемка";
