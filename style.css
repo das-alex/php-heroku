@@ -401,6 +401,38 @@ main {
     align-items: center;
 }
 
+.left_filter {
+    padding-left: 15px;
+}
+
+.right_filter {
+    padding-right: 15px;
+}
+
+.search_block {
+    padding-top: 30px;
+}
+
+.card_search {
+    background: white;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 2px 0 #ccc;
+    justify-content: space-between;
+    border-radius: 2px;
+    margin: 10px 10px 0 0;
+}
+
+.card_search div:first-child {
+    background: pink;
+    padding-left: 15px;
+}
+
+.card_search div:last-child {
+    background: lime;
+    padding-right: 15px;
+}
+
 /********************************************************/
 /*				FOOTER 									*/
 /********************************************************/

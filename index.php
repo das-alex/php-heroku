@@ -26,7 +26,9 @@
 //        });
 //    }); 
     $( function() {
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({
+            dateFormat: "yy-mm-dd"
+        });
     });
 </script>
 <body>
@@ -73,15 +75,15 @@
                         }
                     ?>
 				</datalist>
-				<input type="text" id="datepicker" placeholder="Выбирите дату">
-				<input type="submit" value="поиск">
+				<input name="date" type="text" id="datepicker" autocomplete="off" placeholder="Выбирите дату">
+				<input name="search_index" type="submit" value="поиск">
 			</form>
 		</div>
 		<div class="popular wrapper">
 			<h3>Популярное</h3>
 			<div class="row">
 				<?php                    
-                    $query1 = "SELECT price,country,city,picture FROM tour WHERE orders > 150";
+                    $query1 = "SELECT price,country,city,picture,id FROM tour WHERE orders > 150";
                     $result = mysqli_query($conect, $query1) or die("Ошибка чтения из БД" . mysqli_error($conect));
 
                     if($result) {
@@ -90,7 +92,7 @@
                         for($i=0; $i<$rows; ++$i) {
                             echo "<div class='card'>";
                             $row = mysqli_fetch_row($result);
-                            echo "<div><img src='" . $row[3] . "' width='304' height='160'></div><h3>" . $row[1] . ", " . $row[2] . "</h3><div class='index_button_more'><div><span>". $row[0] ." $</span></div><a href=''>подробнее</a></div>";
+                            echo "<div><img src='" . $row[3] . "' width='304' height='160'></div><h3>" . $row[1] . ", " . $row[2] . "</h3><div class='index_button_more'><div><span>". $row[0] ." $</span></div><a href='item.php?id=".$row[4]."'>подробнее</a></div>";
                             echo "</div>";
                         }
                         
