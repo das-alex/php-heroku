@@ -9,6 +9,13 @@
 <script>
 </script>
 <body>
+    <?php
+        session_start();
+    
+        if(!isset($_SESSION['logon'])) {
+            header("Location:login.php");
+        }
+    ?>
     <div class="header_admin">
         <div class="left_admin">
             <nav class="menu">
@@ -20,7 +27,7 @@
             </nav>
         </div>
         <div class="right_admin">
-            <a href="">Выход</a>
+            <a href="login.php?signout=1">Выход</a>
         </div>
     </div>
     <div class="main_admin">
